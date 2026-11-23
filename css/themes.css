@@ -1,0 +1,81 @@
+/* ============================================================
+   EZRoutine — Design tokens & themes (Material Design 3 inspired)
+   ============================================================ */
+
+:root {
+  /* accents are overridden at runtime from settings */
+  --accent: #7c8cff;
+  --accent-rgb: 124, 140, 255;
+  --accent-2: #00d4b1;
+  --accent-2-rgb: 0, 212, 177;
+
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  --font: "Segoe UI", Roboto, "Helvetica Neue", Arial, system-ui, -apple-system, sans-serif;
+  --app-bar-h: 62px;
+  --nav-h: 66px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0b1020;
+  --bg-elev-1: #121a2e;
+  --bg-elev-2: #18223a;
+  --bg-elev-3: #202c49;
+  --surface: rgba(24, 34, 58, .78);
+  --surface-solid: #18223a;
+  --surface-soft: rgba(124, 140, 255, .08);
+  --text: #eef2ff;
+  --text-2: #a9b4d0;
+  --text-3: #7e8bab;
+  --border: rgba(255, 255, 255, .09);
+  --border-strong: rgba(255, 255, 255, .16);
+  --shadow-1: 0 2px 10px rgba(0, 0, 0, .22);
+  --shadow-2: 0 12px 34px rgba(0, 0, 0, .34);
+  --scrim: rgba(3, 7, 18, .68);
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --danger: #fb7185;
+  --track: rgba(255, 255, 255, .1);
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f4f6fd;
+  --bg-elev-1: #ffffff;
+  --bg-elev-2: #ffffff;
+  --bg-elev-3: #eef1fa;
+  --surface: rgba(255, 255, 255, .88);
+  --surface-solid: #ffffff;
+  --surface-soft: rgba(var(--accent-rgb), .07);
+  --text: #17203a;
+  --text-2: #5b6685;
+  --text-3: #8a94ae;
+  --border: rgba(20, 32, 70, .09);
+  --border-strong: rgba(20, 32, 70, .17);
+  --shadow-1: 0 2px 12px rgba(38, 50, 90, .07);
+  --shadow-2: 0 14px 36px rgba(38, 50, 90, .14);
+  --scrim: rgba(22, 30, 55, .42);
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #e11d48;
+  --track: rgba(20, 32, 70, .09);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

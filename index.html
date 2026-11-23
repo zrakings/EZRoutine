@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="EZRoutine - Personal daily planner, workout scheduler, dan smart alarm. Offline-first, privacy friendly, bisa di-install sebagai PWA.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="EZRoutine">
+  <title>EZRoutine</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="./css/themes.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+  <div id="splash" class="splash" aria-hidden="true">
+    <div class="splash__logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="72" height="72" role="img" aria-label="EZRoutine">
+        <defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7c8cff"/><stop offset="1" stop-color="#00d4b1"/></linearGradient></defs>
+        <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#sg)"/>
+        <path d="M17 21h30M17 32h22M17 43h14" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".95"/>
+      </svg>
+    </div>
+    <div class="splash__name">EZRoutine</div>
+    <div class="splash__tag">Routine lebih mudah, hari lebih teratur.</div>
+  </div>
+
+  <div class="app-shell" id="app-shell" hidden>
+    <header class="app-bar" id="app-bar">
+      <div class="app-bar__inner">
+        <button class="icon-btn app-bar__menu" id="btn-menu" type="button" aria-label="Buka menu" title="Menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <div class="app-bar__titles">
+          <div class="app-bar__title" id="app-bar-title">Beranda</div>
+          <div class="app-bar__subtitle" id="app-bar-subtitle">Hari ini</div>
+        </div>
+        <div class="app-bar__actions" id="app-bar-actions"></div>
+      </div>
+    </header>
+
+    <main class="app-main" id="app-main" tabindex="-1"></main>
+
+    <nav class="bottom-nav" id="bottom-nav" aria-label="Navigasi utama">
+      <button class="nav-item" data-route="home" type="button" aria-label="Beranda">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M9.5 20v-6h5v6"/></svg>
+        <span>Beranda</span>
+      </button>
+      <button class="nav-item" data-route="schedule" type="button" aria-label="Jadwal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="M8 14h3M8 17h6"/></svg>
+        <span>Jadwal</span>
+      </button>
+      <button class="nav-item nav-item--fab" data-route="workout" type="button" aria-label="Olahraga">
+        <span class="nav-fab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8v8M3.5 10v4M17.5 8v8M20.5 10v4M6.5 12h11"/></svg></span>
+        <span>Olahraga</span>
+      </button>
+      <button class="nav-item" data-route="alarm" type="button" aria-label="Alarm">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M5 3 2.5 5.5M19 3l2.5 2.5M9 21h6"/></svg>
+        <span>Alarm</span>
+      </button>
+      <button class="nav-item" data-route="stats" type="button" aria-label="Statistik">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4M4 20h16"/><rect x="7" y="12" width="3" height="5" rx="1"/><rect x="12" y="8" width="3" height="9" rx="1"/><rect x="17" y="5" width="3" height="12" rx="1"/></svg>
+        <span>Statistik</span>
+      </button>
+    </nav>
+
+    <aside class="side-drawer" id="side-drawer" aria-hidden="true">
+      <div class="side-drawer__scrim" data-action="close-drawer"></div>
+      <div class="side-drawer__panel" role="dialog" aria-modal="true" aria-label="Menu aplikasi">
+        <div class="drawer-profile">
+          <div class="avatar" id="drawer-avatar">EZ</div>
+          <div>
+            <div class="drawer-profile__name" id="drawer-name">Pengguna</div>
+            <div class="drawer-profile__sub">Data tersimpan di perangkat ini</div>
+          </div>
+        </div>
+        <div class="drawer-links">
+          <button type="button" class="drawer-link" data-route="home">Beranda</button>
+          <button type="button" class="drawer-link" data-route="schedule">Jadwal Harian</button>
+          <button type="button" class="drawer-link" data-route="workout">Olahraga</button>
+          <button type="button" class="drawer-link" data-route="alarm">Alarm</button>
+          <button type="button" class="drawer-link" data-route="stats">Statistik</button>
+          <div class="drawer-divider"></div>
+          <button type="button" class="drawer-link" data-route="settings">Pengaturan</button>
+        </div>
+        <div class="drawer-foot">EZRoutine v1.0.0 · Offline &amp; privat</div>
+      </div>
+    </aside>
+  </div>
+
+  <div id="modal-root" class="modal-root" aria-live="polite"></div>
+  <div id="toast-root" class="toast-root" aria-live="polite" aria-atomic="true"></div>
+  <div id="ring-root"></div>
+
+  <div id="pwa-banners" class="pwa-banners" aria-live="polite"></div>
+
+  <noscript>
+    <div style="padding:24px;font-family:sans-serif">EZRoutine membutuhkan JavaScript untuk berjalan. Silakan aktifkan JavaScript di browser Anda.</div>
+  </noscript>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

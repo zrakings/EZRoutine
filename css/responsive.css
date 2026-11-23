@@ -1,0 +1,66 @@
+/* ============================================================
+   EZRoutine — Responsive rules (mobile-first)
+   ============================================================ */
+
+@media (max-width: 359px) {
+  :root { --app-bar-h: 58px; }
+  .app-main { padding-left: 12px; padding-right: 12px; }
+  .btn { padding: 0 12px; }
+  .nav-item { font-size: 9.5px; }
+  .nav-item--fab .nav-fab { width: 42px; }
+  .stat-tile__value { font-size: 19px; }
+}
+
+@media (min-width: 600px) {
+  .app-main { padding: 22px 22px calc(var(--nav-h) + 46px); }
+  .card--pad { padding: 18px; }
+  .modal__panel { border-radius: 26px; }
+}
+
+@media (min-width: 860px) {
+  :root { --nav-h: 0px; }
+  .app-bar { border-bottom: 1px solid var(--border); }
+  .app-bar__inner, .app-main { padding-left: 28px; padding-right: 28px; }
+
+  .bottom-nav {
+    left: auto; right: 18px; top: 50%; bottom: auto; width: 64px; height: auto;
+    transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 4px;
+    padding: 8px 4px; border: 1px solid var(--border); border-radius: 22px;
+    box-shadow: var(--shadow-2); background: var(--bg-elev-1);
+  }
+  .nav-item { min-height: 52px; border-radius: 14px; }
+  .nav-item.is-active { background: var(--surface-soft); }
+  .nav-item.is-active::before { left: -8px; top: 16px; width: 3px; height: 20px; border-radius: 4px; }
+  .nav-item span:not(.nav-fab) { display: none; }
+  .nav-item--fab { flex: none; }
+  .nav-item--fab .nav-fab { width: 44px; height: 40px; margin-top: 0; }
+  .fab { bottom: 26px; right: 100px; }
+  .toast-root { bottom: 26px; align-items: flex-end; padding-right: 96px; }
+  .pwa-banners { bottom: 24px; right: 96px; left: auto; }
+}
+
+@media (min-width: 1100px) {
+  .app-main { padding-left: 42px; padding-right: 42px; }
+  .grid--2 { gap: 16px; }
+}
+
+/* Bottom sheet style modal on small screens */
+@media (max-width: 560px) {
+  .modal { align-items: flex-end; padding: 0; }
+  .modal__panel {
+    width: 100%; max-height: 92dvh; border-radius: 24px 24px 0 0;
+    border-bottom: 0; animation: sheet-in .28s var(--ease) both;
+  }
+  .modal__handle { display: block; width: 36px; height: 4px; border-radius: 99px; background: var(--border-strong); margin: 9px auto -3px; }
+  @keyframes sheet-in { from { transform: translateY(100%) } to { transform: none } }
+  .field-row--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .field-row--3 > .field:last-child:nth-child(odd) { grid-column: span 2; }
+}
+
+@media (max-height: 620px) and (orientation: landscape) {
+  .splash__logo svg { width: 52px; height: 52px; }
+  .ring-overlay { gap: 10px; }
+  .ring-overlay__clock { font-size: 56px; }
+  .timer-ring { width: 160px; height: 160px; }
+}
